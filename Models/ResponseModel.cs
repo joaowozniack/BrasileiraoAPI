@@ -1,4 +1,4 @@
-﻿namespace BrasileiraoAPI.Models.Entities
+﻿namespace BrasileiraoAPI.Models
 {
     public class ResponseModel<T>
     {

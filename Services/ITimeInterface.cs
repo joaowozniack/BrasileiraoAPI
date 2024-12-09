@@ -1,6 +1,5 @@
 ﻿using BrasileiraoAPI.Dto;
 using BrasileiraoAPI.Models;
-using BrasileiraoAPI.Models.Entities;
 
 namespace BrasileiraoAPI.Services
 {

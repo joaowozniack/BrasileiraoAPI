@@ -1,4 +1,4 @@
-﻿namespace BrasileiraoAPI.Models.Entities
+﻿namespace BrasileiraoAPI.Models
 {
     public class Time
     {
@@ -9,6 +9,7 @@
         public string Cidade { get; set; }
         public string UF { get; set; }
         public string AnoFundacao { get; set; }
+        public string Estadio { get; set; }
 
         //Propriedas para classificação
 

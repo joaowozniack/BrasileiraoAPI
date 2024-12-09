@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using BrasileiraoAPI.Dto;
-using BrasileiraoAPI.Models.Entities;
+using BrasileiraoAPI.Models;
 
 namespace BrasileiraoAPI.Profiles
 {
-    public class ProfileAutoMapper : Profile
+    public class TimeAutoMapper : Profile
     {
-        public ProfileAutoMapper()
+        public TimeAutoMapper()
         {
             CreateMap<Time, TimeListarDto>();
         }

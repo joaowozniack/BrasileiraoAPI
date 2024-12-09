@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ITimeInterface, TimeService>();
+builder.Services.AddScoped<IPartidaInterface, PartidaService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 

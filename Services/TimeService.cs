@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BrasileiraoAPI.Dto;
-using BrasileiraoAPI.Models.Entities;
+using BrasileiraoAPI.Models;
 using Dapper;
 using MySql.Data.MySqlClient;
 
