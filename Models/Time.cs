@@ -20,6 +20,6 @@
         public int Derrotas { get; set; }
         public int GolsPro { get; set; }
         public int GolsContra { get; set; }
-        public int SaldoGols => GolsPro - GolsContra;
+        public int SaldoGols { get; set; }
     }
 }

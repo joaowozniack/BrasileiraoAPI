@@ -3,6 +3,7 @@ using BrasileiraoAPI.Dto;
 using BrasileiraoAPI.Models;
 using Dapper;
 using MySql.Data.MySqlClient;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace BrasileiraoAPI.Services
 {
@@ -47,7 +48,22 @@ namespace BrasileiraoAPI.Services
 
             using (var connection = new MySqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
-                var timesBanco = await connection.QueryAsync<Time>("select * from Time");
+                var criteriosZerados = await connection.ExecuteScalarAsync<int>(
+                    "SELECT COUNT(*) FROM Time " +
+                    "WHERE Pontos != 0");
+
+                IEnumerable<Time> timesBanco;
+
+                if (criteriosZerados == 0)
+                {
+                    timesBanco = await connection.QueryAsync<Time>("select * from Time order by Nome");
+                }
+                else
+                {
+                    timesBanco = await connection.QueryAsync<Time>(
+                        "SELECT * FROM Time " +
+                        "ORDER BY Pontos DESC, Vitorias DESC, SaldoGols DESC, GolsPro DESC");
+                }
 
                 if (timesBanco.Count() == 0)
                 {

@@ -28,10 +28,36 @@ namespace BrasileiraoAPI.Controllers
             return Ok(partidas);
         }
 
+        [HttpGet("/partidas")]
+        public async Task<IActionResult> ListarPartidasCampeonato()
+        {
+            var partidas = await _partidaInterface.ListarPartidasPagina();
+
+            if (!partidas.Status)
+            {
+                return NotFound(partidas);
+            }
+
+            return Ok(partidas);
+        }
+
         [HttpPost("{partidaRodada}")]
         public async Task<IActionResult> CadastrarPartidaPorRodada(int partidaRodada, PartidaCadastrarDto partidaCadastrarDto)
         {
             var partidas = await _partidaInterface.CadastrarPartidaPorRodada(partidaRodada, partidaCadastrarDto);
+
+            if (!partidas.Status)
+            {
+                return BadRequest(partidas);
+            }
+
+            return Ok(partidas);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> AtualizarPartidaComPlacar(int idPartida, int golsTimeCasa, int golsTimeVisitante)
+        {
+            var partidas = await _partidaInterface.AtualizarPartidaComPlacar(idPartida, golsTimeCasa, golsTimeVisitante);
 
             if (!partidas.Status)
             {
