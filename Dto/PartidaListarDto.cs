@@ -4,7 +4,7 @@ namespace BrasileiraoAPI.Dto
 {
     public class PartidaListarDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Status { get; set; }
         public int Rodada { get; set; }
         public string TimeCasa { get; set; }

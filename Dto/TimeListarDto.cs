@@ -10,6 +10,7 @@ namespace BrasileiraoAPI.Dto
         public string Cidade { get; set; }
         public string UF { get; set; }
         public string AnoFundacao { get; set; }
+        public string Estadio { get; set; }
 
         public int Jogos { get; set; }
         public int Pontos { get; set; }

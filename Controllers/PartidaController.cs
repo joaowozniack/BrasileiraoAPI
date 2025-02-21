@@ -54,17 +54,17 @@ namespace BrasileiraoAPI.Controllers
             return Ok(partidas);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> AtualizarPartidaComPlacar(int idPartida, int golsTimeCasa, int golsTimeVisitante)
+        [HttpPut("atualizarPartida")]
+        public async Task<IActionResult> AtualizarPartidaComPlacar([FromBody] PartidaListarDto partidaDto)
         {
-            var partidas = await _partidaInterface.AtualizarPartidaComPlacar(idPartida, golsTimeCasa, golsTimeVisitante);
+            var resultado = await _partidaInterface.AtualizarPartidaComPlacar(partidaDto);
 
-            if (!partidas.Status)
+            if (!resultado.Status)
             {
-                return BadRequest(partidas);
+                return BadRequest(resultado);
             }
 
-            return Ok(partidas);
+            return Ok(resultado);
         }
 
     }
