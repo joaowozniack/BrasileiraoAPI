@@ -67,5 +67,16 @@ namespace BrasileiraoAPI.Controllers
             return Ok(resultado);
         }
 
+        [HttpPut("finalizarPartida")]
+        public async Task<IActionResult> FinalizarPartida([FromBody] PartidaListarDto partidaDto)
+        {
+            var resultado = await _partidaInterface.FinalizarPartida(partidaDto);
+            if (!resultado.Status)
+            {
+                return BadRequest(resultado);
+            }
+            return Ok(resultado);
+        }
+
     }
 }
